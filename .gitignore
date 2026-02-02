@@ -1,0 +1,32 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build do frontend
+frontend/dist/
+frontend/.vite/
+*.local
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars   # pode conter credenciais
+*.tfplan
+
+# Docker
+*.dockerfile~
+docker-compose.override.yml
+docker-compose.override.yaml
+
+# GitHub Actions
+.github/workflows/*.yml     # se quiser ignorar workflows, mas geralmente não
+
+# Logs
+*.log

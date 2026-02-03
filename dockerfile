@@ -1,5 +1,5 @@
 # =========================
-# 1️⃣ STAGE DE BUILD
+# STAGE 1: Build do Frontend
 # =========================
 FROM node:20-alpine AS builder
 
@@ -9,28 +9,28 @@ WORKDIR /app
 COPY frontend/package.json frontend/package-lock.json* ./
 RUN npm install
 
-# Copia o resto do frontend
+# Copia o restante do frontend
 COPY frontend/ .
 
 # Gera build de produção
 RUN npm run build
 
 # =========================
-# 2️⃣ STAGE DE RUNTIME
+# STAGE 2: Runtime com Nginx
 # =========================
 FROM nginx:alpine
 
-# Remove config default do nginx
+# Remove configuração default
 RUN rm /etc/nginx/conf.d/default.conf
 
-# Config nginx para SPA + Cloud Run
+# Copia config customizada
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copia build gerado
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Cloud Run usa 8080
+# Cloud Run define a porta via variável PORT
 EXPOSE 8080
 
-# Inicia nginx
+# Mantém o Nginx rodando em foreground
 CMD ["nginx", "-g", "daemon off;"]

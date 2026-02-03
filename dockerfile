@@ -1,7 +1,7 @@
 # =========================
 # STAGE 1: Build do Frontend
 # =========================
-FROM node:20-alpine AS builder
+FROM --platform=linux/amd64 node:20-alpine AS builder
 
 WORKDIR /app
 
@@ -18,7 +18,7 @@ RUN npm run build
 # =========================
 # STAGE 2: Runtime com Nginx
 # =========================
-FROM nginx:alpine
+FROM --platform=linux/amd64 nginx:alpine
 
 # Remove configuração default
 RUN rm /etc/nginx/conf.d/default.conf

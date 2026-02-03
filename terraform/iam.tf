@@ -29,3 +29,25 @@ resource "google_cloud_run_v2_service_iam_member" "public_access" {
   role   = "roles/run.invoker"
   member = "allUsers"
 }
+
+resource "google_service_account" "github_actions" {
+  account_id   = "github-actions"
+  display_name = "GitHub Actions Service Account"
+}
+
+# Permissões necessárias
+resource "google_project_iam_member" "artifact_writer" {
+  project = var.project_id
+  role    = "roles/artifactregistry.writer"
+  member  = "serviceAccount:${google_service_account.github_actions.email}"
+}
+
+resource "google_project_iam_member" "cloud_run_admin" {
+  project = var.project_id
+  role    = "roles/run.admin"
+  member  = "serviceAccount:${google_service_account.github_actions.email}"
+}
+
+resource "google_service_account_key" "github_actions_key" {
+  service_account_id = google_service_account.github_actions.name
+}

@@ -19,6 +19,7 @@ terraform.tfstate
 terraform.tfstate.backup
 *.tfvars   # pode conter credenciais
 *.tfplan
+old_terraform_old/
 
 # Docker
 *.dockerfile~

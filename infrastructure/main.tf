@@ -6,5 +6,5 @@ module "github_actions_sa" {
   name            = "github-actions"
   sa_display_name = "GitHub Actions Service Account"
   sa_description  = "Service account used by GitHub Actions workflows to authenticate and push Docker images to Google Artifact Registry."
-  roles           = ["roles/artifactregistry.writer"]
+  roles           = ["roles/artifactregistry.writer", "roles/run.admin", "roles/iam.serviceAccountUser"]
 }

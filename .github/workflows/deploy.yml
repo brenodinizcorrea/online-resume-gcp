@@ -8,8 +8,8 @@ on:
 
 env:
   GCP_PROJECT: ${{ secrets.GCP_PROJECT }}
-  REPO_NAME: ${{ secrets.REPO_NAME }}
-  IMAGE_NAME: ${{ secrets.IMAGE_NAME }}
+  REPO_NAME: ${{ secrets.ARTIFACT_REGISTRY_REPO_ONLINE_RESUME }}
+  IMAGE_NAME: ${{ secrets.ARTIFACT_REGISTRY_IMAGE_ONLINE_RESUME }}
   REGION: us-central1
 
 jobs:

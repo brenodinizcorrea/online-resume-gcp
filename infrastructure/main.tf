@@ -8,3 +8,16 @@ module "github_actions_sa" {
   sa_description  = "Service account used by GitHub Actions workflows to authenticate and push Docker images to Google Artifact Registry."
   roles           = ["roles/artifactregistry.writer", "roles/run.admin", "roles/iam.serviceAccountUser"]
 }
+
+resource "google_cloud_run_domain_mapping" "site" {
+  location = var.region
+  name     = var.domain_name
+
+  metadata {
+    namespace = var.project_id
+  }
+
+  spec {
+    route_name = var.cloud_run_service_name
+  }
+}

@@ -1,0 +1,49 @@
+/* =========================
+   VARIÁVEIS LOCAIS - POST CARD
+   ========================= */
+:root {
+  --post-card-bg: var(--bg-alt);
+  --post-card-border: var(--bg-tertiary);
+  --post-card-text-title: var(--text-primary);
+  --post-card-text-description: var(--text-secondary);
+  --post-card-hover-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   POST CARD
+   ========================= */
+
+/* Link do card */
+.post-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Container do card */
+.post-card {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--post-card-border);
+  border-radius: 6px;
+  background-color: var(--post-card-bg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+/* Hover do card */
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--post-card-hover-shadow);
+}
+
+/* Título do post */
+.post-card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--post-card-text-title);
+}
+
+/* Descrição do post */
+.post-card p {
+  margin: 0;
+  color: var(--post-card-text-description);
+}

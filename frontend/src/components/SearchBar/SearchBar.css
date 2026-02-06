@@ -1,0 +1,26 @@
+/* =========================
+   VARIÁVEIS LOCAIS - SEARCH BAR
+   ========================= */
+:root {
+  --search-border: var(--bg-tertiary);
+  --search-bg: var(--bg-white);
+  --search-text: var(--text-primary);
+}
+
+/* =========================
+   SEARCH BAR
+   ========================= */
+.search-bar {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--search-border);
+  font-size: 1rem;
+  background-color: var(--search-bg);
+  color: var(--search-text);
+}
+
+.search-bar::placeholder {
+  color: var(--text-secondary);
+}

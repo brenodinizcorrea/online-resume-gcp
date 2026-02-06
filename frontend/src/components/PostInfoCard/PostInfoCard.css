@@ -1,0 +1,30 @@
+/* =========================
+   VARIÁVEIS LOCAIS - POST INFO CARD
+   ========================= */
+:root {
+  --post-info-card-bg: var(--bg-secondary);
+  --post-info-card-border: var(--bg-tertiary);
+  --post-info-text: var(--text-primary);
+}
+
+/* =========================
+   POST INFO CARD
+   ========================= */
+.post-info-card {
+  background-color: var(--post-info-card-bg);
+  border: 1px solid var(--post-info-card-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0 2rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.post-info-learnings,
+.post-info-readtime {
+  margin: 0.5rem 0;
+  color: var(--post-info-text);
+}
+
+.post-info-learnings strong {
+  font-weight: 600;
+}

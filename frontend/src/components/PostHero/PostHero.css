@@ -1,0 +1,42 @@
+/* =========================
+   VARIÁVEIS LOCAIS - POST HERO
+   ========================= */
+:root {
+  --post-hero-bg: var(--bg-primary);
+  --post-hero-title: var(--text-white);
+  --post-hero-learnings: var(--text-primary);
+  --post-hero-readtime: var(--text-white);
+}
+
+/* =========================
+   POST HERO
+   ========================= */
+.post-hero {
+  width: 100vw; /* ocupa toda a largura da tela */
+  padding: 4rem 1rem;
+  text-align: center;
+  background-color: var(--post-hero-bg);
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+}
+
+/* Título do post - força a cor do Hero */
+.post-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--post-hero-title) !important; /* !important garante que sobrescreve main.css */
+}
+
+/* Texto do que você vai aprender */
+.post-hero .post-learnings {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--post-hero-learnings) !important;
+}
+
+/* Tempo de leitura */
+.post-hero .post-readtime {
+  font-size: 0.9rem;
+  color: var(--post-hero-readtime) !important;
+}

@@ -1,0 +1,15 @@
+/* =========================
+   VARIÁVEIS LOCAIS - POSTS LIST
+   ========================= */
+:root {
+  --posts-list-gap: 1rem;
+}
+
+/* =========================
+   LISTA DE POSTS
+   ========================= */
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--posts-list-gap);
+}

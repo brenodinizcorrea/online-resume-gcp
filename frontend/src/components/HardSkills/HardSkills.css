@@ -1,0 +1,155 @@
+/* =========================
+   VARIÁVEIS DE COR - HARD SKILLS
+   ========================= */
+
+:root {
+  --skills-bg: var(--bg-gray-50);       /* Fundo da seção */
+  --skills-cloud-bg: var(--bg-white);   /* Fundo do container */
+  --skills-text-primary: var(--text-primary);
+  --skills-border: var(--border);
+
+  --skill-exp-bg: rgba(22,163,74,.18);
+  --skill-exp-border: #16a34a;
+  --skill-exp-color: #14532d;
+
+  --skill-study-bg: rgba(37,99,235,.18);
+  --skill-study-border: #2563eb;
+  --skill-study-color: #1e3a8a;
+
+  --skill-learn-bg: rgba(147,51,234,.18);
+  --skill-learn-border: #9333ea;
+  --skill-learn-color: #581c87;
+}
+
+/* =========================
+   SECTION SKILLS
+   ========================= */
+
+.section-skills{
+  background: var(--skills-bg);
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+/* legend */
+.skills-legend{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.75rem;
+  margin-bottom: 1.25rem;
+  font-size: .95rem;
+  font-weight: var(--weight-medium);
+  color: var(--skills-text-primary);
+}
+
+.legend-item{
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+}
+
+.legend-dot{
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid transparent;
+}
+
+.legend-dot.exp{
+  background: var(--skill-exp-bg);
+  border-color: var(--skill-exp-border);
+}
+
+.legend-dot.study{
+  background: var(--skill-study-bg);
+  border-color: var(--skill-study-border);
+}
+
+.legend-dot.learn{
+  background: var(--skill-learn-bg);
+  border-color: var(--skill-learn-border);
+  border-style: dashed;
+}
+
+/* cloud container */
+.skills-cloud-map{
+  background: var(--skills-cloud-bg);
+  border: 1px solid var(--skills-border);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* sector */
+.cloud-sector{
+  border-radius: 1rem;
+  padding: .9rem;
+}
+
+/* sector title */
+.sector-kicker{
+  display: inline-block;
+  font-size: .75rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: .6rem;
+  color: var(--skills-text-primary);
+}
+
+/* pills container */
+.sector-cloud{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem .6rem;
+}
+
+/* base pill */
+.skill-pill{
+  padding: .45rem .7rem;
+  border-radius: 999px;
+  font-size: .95rem;
+  font-weight: var(--weight-semibold);
+  border: 2px solid transparent;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+/* EXPERIENCE — GREEN */
+.skill-exp{
+  background: var(--skill-exp-bg);
+  border-color: var(--skill-exp-border);
+  color: var(--skill-exp-color);
+}
+
+/* STUDIED — BLUE */
+.skill-study{
+  background: var(--skill-study-bg);
+  border-color: var(--skill-study-border);
+  color: var(--skill-study-color);
+}
+
+/* LEARNING — PURPLE */
+.skill-learn{
+  background: var(--skill-learn-bg);
+  border-color: var(--skill-learn-border);
+  color: var(--skill-learn-color);
+  border-style: dashed;
+}
+
+/* hover */
+.skill-pill:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 .7rem 1.4rem rgba(0,0,0,.15);
+}
+
+/* responsive */
+@media (max-width: 768px){
+  .skills-cloud-map{
+    grid-template-columns: 1fr;
+  }
+}

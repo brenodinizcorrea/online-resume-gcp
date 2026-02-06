@@ -1,0 +1,143 @@
+/* =========================
+   VARIÁVEIS DE COR - LANGUAGES
+   ========================= */
+
+:root {
+  --languages-bg: var(--bg-white);                     /* Fundo da seção */
+  --languages-bg-overlay: rgba(255, 255, 255, 0.75);  /* Overlay fosco */
+  --languages-text-primary: var(--text-primary);       /* Texto principal */
+  --languages-text-secondary: var(--text-secondary);   /* Texto secundário */
+  --languages-border: #e5e7eb;                         /* Bordas dos círculos */
+  --languages-circle-bg: #f3f4f6;                      /* Fundo dos círculos */
+}
+
+/* =========================
+   LANGUAGES (section)
+   ========================= */
+
+.section-languages {
+  position: relative;
+  background-color: var(--languages-bg);
+
+  /* imagem de fundo + overlay fosco parametrizado */
+  background-image:
+    linear-gradient(var(--languages-bg-overlay), var(--languages-bg-overlay)),
+    url("../../assets/world-map.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  min-height: 280px; /* centraliza verticalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical */
+  align-items: center;     /* horizontal */
+  text-align: center;      /* texto central */
+}
+
+/* HEADER */
+.section-languages .h3,
+.section-languages .text-secondary {
+  color: var(--languages-text-primary);
+}
+
+/* =========================
+   GRID
+   ========================= */
+
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 2.5rem;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ITEM */
+.language-item {
+  text-align: center;
+}
+
+/* =========================
+   CIRCLES
+   ========================= */
+
+.language-circle {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 0.75rem;
+
+  border-radius: 999px;
+  border: 2px solid var(--languages-border);
+  background: var(--languages-circle-bg); /* cor do fundo parametrizada */
+
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: var(--weight-bold, 600);
+  font-size: 1.25rem;
+  color: var(--languages-text-primary);
+  text-transform: none;
+
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.language-circle:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.08);
+}
+
+.language-circle::before {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(37,99,235,.10), transparent 55%),
+    radial-gradient(circle at 70% 65%, rgba(15,23,42,.06), transparent 60%);
+  opacity: 0.9;
+  transform: rotate(10deg);
+}
+
+.language-circle > span {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   TEXT
+   ========================= */
+
+.language-name {
+  font-weight: var(--weight-semibold, 500);
+  color: var(--languages-text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.language-level {
+  font-size: 0.95rem;
+  font-weight: var(--weight-medium, 400);
+  color: var(--languages-text-secondary);
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+/* =========================
+   RESPONSIVO
+   ========================= */
+
+@media (max-width: 768px) {
+  .languages-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .language-circle {
+    width: 130px;
+    height: 130px;
+    font-size: 1.15rem;
+  }
+}

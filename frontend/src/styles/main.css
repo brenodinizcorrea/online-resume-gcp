@@ -1,0 +1,104 @@
+/* =========================
+   MAIN CSS / PALETA GLOBAL
+   ========================= */
+
+/* Paleta de cores globais */
+:root {
+  /* Fundos */
+  --bg-primary: #22356f;      /* Azul marinho escuro, mais fosco/profissional */
+  --bg-secondary: #f3f4f6;    /* Cinza claro */
+  --bg-tertiary: #6b7280;     /* Cinza médio */
+  --bg-alt: #e5e7eb;          /* Cinza alternativo, mais claro */
+
+  /* Textos */
+  --text-primary: #111827;    /* Preto bem escuro */
+  --text-secondary: #4b5563;  /* Cinza escuro */
+  --text-tertiary: #6b7280;   /* Cinza médio */
+  --text-white: #ffffff;      /* Branco puro */
+}
+
+/* =========================
+   GLOBAL RESET / BASE
+   ========================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--text-white); /* padrão para corpo */
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Containers globais */
+.container-lg {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+/* Paragraphs */
+p {
+  color: var(--text-secondary);
+}
+
+/* Imagens */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Botões genéricos */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+/* Flex helpers */
+.d-flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+/* Margens e espaçamentos */
+.py-5 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}

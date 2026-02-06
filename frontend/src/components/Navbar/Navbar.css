@@ -1,0 +1,73 @@
+/* =========================
+   VARIÁVEIS LOCAIS (ou globais já definidas)
+   ========================= */
+:root {
+  /* Cores de fundo e borda do Navbar */
+  --navbar-bg: var(--bg-secondary);       /* Fundo branco/cinza claro */
+  --navbar-border: rgba(0,0,0,0.1);       /* Borda sutil */
+
+  /* Cores de texto */
+  --navbar-text: var(--text-primary);     /* Preto escuro para links e nome */
+  --navbar-text-hover: var(--bg-primary); /* Azul marinho para hover */
+}
+
+/* =========================
+   Navbar principal
+   ========================= */
+.navbar {
+  width: 100%;
+  background-color: var(--navbar-bg);
+  border-bottom: 1px solid var(--navbar-border);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Conteúdo centralizado com espaçamento */
+.navbar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Nome mais à esquerda */
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--navbar-text);
+  margin-left: 0;
+  text-decoration: none;
+}
+
+/* Menu à direita */
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links do menu */
+.navbar-menu li a {
+  text-decoration: none;
+  color: var(--navbar-text);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar-menu li a:hover {
+  color: var(--navbar-text-hover);
+}
+
+/* Responsividade mínima: pequenas telas */
+@media (max-width: 768px) {
+  .navbar-menu {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

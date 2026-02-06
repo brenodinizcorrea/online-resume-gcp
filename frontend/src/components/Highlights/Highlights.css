@@ -1,0 +1,108 @@
+/* =========================
+   VARIÁVEIS LOCAIS - HIGHLIGHTS
+   ========================= */
+:root {
+  --highlights-bg: var(--bg-secondary);
+  --highlight-card-bg: var(--bg-alt);
+  --highlight-text-primary: var(--text-primary);
+  --highlight-text-secondary: var(--text-secondary);
+  --highlight-kicker: var(--text-tertiary);
+}
+
+/* =========================
+   HIGHLIGHTS SECTION
+   ========================= */
+
+.highlights-section {
+  width: 100%;
+  padding: 60px 20px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--highlight-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--highlight-text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Grid responsivo: desktop 4 colunas, tablet 2, mobile 1 */
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* desktop */
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .highlights-grid {
+    grid-template-columns: repeat(2, 1fr); /* tablet */
+  }
+}
+
+@media (max-width: 576px) {
+  .highlights-grid {
+    grid-template-columns: 1fr; /* mobile */
+  }
+}
+
+/* Cards */
+.highlight-card {
+  background-color: var(--highlight-card-bg);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 .35rem 1rem rgba(0,0,0,.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.08);
+}
+
+/* Kicker */
+.highlight-kicker {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--highlight-kicker);
+  margin-bottom: 0.35rem;
+}
+
+/* Título e texto */
+.highlight-card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--highlight-text-primary);
+}
+
+.highlight-card p {
+  color: var(--highlight-text-secondary);
+  line-height: 1.45;
+  margin-bottom: 0.8rem;
+}
+
+/* Badges */
+.highlight-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.highlight-badges .badge {
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: var(--highlight-text-primary);
+  padding: 0.35rem 0.6rem;
+  font-size: 0.75rem;
+}

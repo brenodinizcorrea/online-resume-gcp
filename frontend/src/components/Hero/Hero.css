@@ -1,0 +1,72 @@
+/* =========================
+   VARIÁVEIS DE COR - HERO
+   ========================= */
+:root {
+  --hero-bg: var(--bg-tertiary);            /* Fundo padrão da seção */
+  --hero-text-primary: var(--text-primary);
+  --hero-text-secondary: var(--text-secondary);
+}
+
+/* =========================
+   HERO SECTION
+   ========================= */
+.hero {
+  width: 100%;
+  padding: 60px 20px;
+  background-color: var(--hero-bg);
+}
+
+.hero-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  flex: 1 1 500px;
+  min-width: 300px;
+  color: var(--hero-text-primary);
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+  color: var(--hero-text-primary);
+}
+
+.hero-description {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: var(--hero-text-secondary);
+}
+
+.hero-location {
+  font-size: 0.9rem;
+  color: var(--hero-text-secondary);
+}
+
+.hero-photo {
+  flex: 0 0 250px;
+  text-align: center;
+}
+
+.hero-photo img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-text {
+    margin-bottom: 20px;
+  }
+}

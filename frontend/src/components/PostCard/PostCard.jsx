@@ -1,27 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import "./PostCard.css";
 
-const PostCard = ({ id, title, description }) => {
+const PostCard = ({ title, description, url, tags }) => {
   return (
-    <Link 
-      to={`/blog/${id}`} 
-      style={{ textDecoration: "none", color: "inherit" }} // inline, pois page não tem CSS
-    >
-      <div 
-        style={{
-          padding: "1rem",
-          marginBottom: "1rem",
-          border: "1px solid #ccc",
-          borderRadius: "6px",
-          backgroundColor: "#f9f9f9",
-          transition: "transform 0.2s, box-shadow 0.2s",
-          cursor: "pointer",
-        }}
-      >
-        <h3 style={{ marginBottom: "0.5rem" }}>{title}</h3>
-        <p style={{ margin: 0 }}>{description}</p>
+    <a href={url} className="post-card-link">
+      <div className="post-card">
+        <h3>{title}</h3>
+        <p>{description}</p>
+
+        {tags && tags.length > 0 && (
+          <div className="post-tags">
+            {tags.map((tag, idx) => (
+              <span key={idx} className="post-tag">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
-    </Link>
+    </a>
   );
 };
 

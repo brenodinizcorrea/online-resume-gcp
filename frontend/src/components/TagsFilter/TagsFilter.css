@@ -1,0 +1,37 @@
+/* =========================
+   VARIÁVEIS LOCAIS - TAGS FILTER
+   ========================= */
+:root {
+  --tags-bg: var(--bg-secondary);
+  --tags-selected-bg: var(--bg-primary);
+  --tags-text: var(--text-primary);
+  --tags-selected-text: var(--text-white);
+  --tags-border: var(--bg-alt);
+  --tags-gap: 0.5rem;
+}
+
+/* =========================
+   TAGS FILTER
+   ========================= */
+.tags-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--tags-gap);
+  margin-bottom: 1.5rem;
+}
+
+.tag-btn {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--tags-border);
+  background-color: var(--tags-bg);
+  color: var(--tags-text);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.tag-btn.selected {
+  border: 2px solid var(--tags-selected-bg);
+  background-color: var(--tags-selected-bg);
+  color: var(--tags-selected-text);
+}

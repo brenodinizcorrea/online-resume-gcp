@@ -1,38 +1,33 @@
 import React, { useState } from "react";
 import SearchBar from "../components/SearchBar/SearchBar";
 import PostsList from "../components/PostsList/PostsList";
+import TagsFilter from "../components/TagsFilter/TagsFilter";
+import postsMap from "../blog/posts";
 
-// Aqui você pode importar os posts JSX
-import Post1 from "../blog/posts/Post1";
-// futuramente: import Post2 from "../../blog/posts/Post2";
+const postsData = Object.entries(postsMap).map(([id, post]) => ({
+  id,
+  title: post.title,
+  description: post.learnings,
+  tags: post.tags || [],
+}));
 
-const postsData = [
-  {
-    id: 1,
-    title: "Aprendendo Python",
-    description: "Dicas para iniciantes",
-    Component: Post1, // referência ao componente do post
-  },
-  // futuramente mais posts...
-];
+const allTags = Array.from(new Set(postsData.flatMap(post => post.tags)));
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedTag, setSelectedTag] = useState("");
 
-  // filtra os posts pelo título
-  const filteredPosts = postsData.filter((post) =>
-    post.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredPosts = postsData.filter(post => {
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesTag = selectedTag ? post.tags.includes(selectedTag) : true;
+    return matchesSearch && matchesTag;
+  });
 
   return (
     <div style={{ maxWidth: "800px", margin: "2rem auto", padding: "0 1rem" }}>
-      {/* Barra de busca */}
       <SearchBar value={searchTerm} onChange={setSearchTerm} />
-
-      {/* Lista de posts */}
+      <TagsFilter tags={allTags} selectedTag={selectedTag} onSelectTag={setSelectedTag} />
       <PostsList posts={filteredPosts} />
-
-      {/* Mensagem se não houver posts */}
       {filteredPosts.length === 0 && <p>Nenhum post encontrado.</p>}
     </div>
   );

@@ -2,29 +2,52 @@
    VARIÁVEIS LOCAIS - POST INFO CARD
    ========================= */
 :root {
-  --post-info-card-bg: var(--bg-secondary);
-  --post-info-card-border: var(--bg-tertiary);
+  --post-info-bg: var(--bg-secondary);
   --post-info-text: var(--text-primary);
+  --post-info-learnings: var(--text-tertiary);
+  --post-info-readtime: var(--text-secondary);
+  --post-tag-bg: var(--bg-primary);
+  --post-tag-text: var(--text-white);
 }
 
 /* =========================
    POST INFO CARD
    ========================= */
 .post-info-card {
-  background-color: var(--post-info-card-bg);
-  border: 1px solid var(--post-info-card-border);
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin: 1rem 0 2rem 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-.post-info-learnings,
-.post-info-readtime {
-  margin: 0.5rem 0;
+  background-color: var(--post-info-bg);
   color: var(--post-info-text);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
 }
 
-.post-info-learnings strong {
+.post-learnings {
+  font-size: 1rem;
+  color: var(--post-info-learnings);
+  margin-bottom: 0.5rem;
+}
+
+.post-readtime {
+  font-size: 0.9rem;
+  color: var(--post-info-readtime);
+  margin-bottom: 0.5rem;
+}
+
+/* =========================
+   TAGS
+   ========================= */
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.post-tag {
+  background-color: var(--post-tag-bg);
+  color: var(--post-tag-text);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
   font-weight: 600;
 }

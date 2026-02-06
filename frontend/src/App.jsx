@@ -1,9 +1,13 @@
-import Home from "./pages/Home.jsx";
+import React from "react";
+import Navbar from "./components/Navbar/Navbar.jsx";
 
 function App() {
-
-  return <Home />;
-
+  return (
+    <div>
+      <Navbar />
+      {/* Aqui, futuramente, vão outras seções/páginas */}
+    </div>
+  );
 }
 
-export default App
+export default App;

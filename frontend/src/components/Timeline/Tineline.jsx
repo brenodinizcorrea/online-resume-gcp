@@ -8,10 +8,104 @@ import ufesLogo from "../../assets/education-logos/ufes.png";
 import ifesLogo from "../../assets/education-logos/ifes.png";
 
 export default function Timeline() {
+  /* ======================================================
+     CONFIGURAÇÃO DA LINHA DO TEMPO
+  ====================================================== */
+
+  const timelineStart = { year: 2016, month: 1 };
+  
+  const now = new Date();
+  
+  const timelineEnd = {
+    year: now.getFullYear(),
+    month: now.getMonth() + 1, // +1 porque getMonth() começa em 0
+  };
+
+
+  const toMonths = ({ year, month }) => year * 12 + month;
+
+  const totalMonths =
+    toMonths(timelineEnd) - toMonths(timelineStart);
+
+  function getPosition(start, end) {
+    const startMonth = toMonths(start);
+    const endMonth = end ? toMonths(end) : toMonths(timelineEnd);
+
+    const left =
+      ((startMonth - toMonths(timelineStart)) / totalMonths) * 100;
+
+    const width =
+      ((endMonth - startMonth) / totalMonths) * 100;
+
+    return {
+      left: `${left}%`,
+      width: `${width}%`,
+    };
+  }
+
+  /* ======================================================
+     DADOS - EMPRESAS
+  ====================================================== */
+
+  const jobs = [
+    {
+      title: "Wine",
+      subtitle: "Analytics / DS",
+      logo: wineLogo,
+      link: "https://www.wine.com.br",
+      start: { year: 2020, month: 6 },
+      end: { year: 2023, month: 11 },
+    },
+    {
+      title: "Thoughtworks",
+      subtitle: "Analytics / DS",
+      logo: thoughtworksLogo,
+      link: "https://www.thoughtworks.com/",
+      start: { year: 2023, month: 11 },
+      end: null,
+      current: true,
+    },
+  ];
+
+  /* ======================================================
+     DADOS - EDUCAÇÃO
+  ====================================================== */
+
+  const education = [
+    {
+      title: "BSc in Electrical Engineering",
+      logo: ufesLogo,
+      start: { year: 2016, month: 2 },
+      end: { year: 2021, month: 12 },
+    },
+    {
+      title: "PG in AI",
+      logo: ufesLogo,
+      start: { year: 2024, month: 1 },
+      end: { year: 2024, month: 12 },
+    },
+    {
+      title: "MSc in AI",
+      logo: ifesLogo,
+      start: { year: 2024, month: 6 },
+      end: null,
+      current: true,
+      offset: true,
+    },
+  ];
+
+  /* ======================================================
+     GERAR EIXO AUTOMÁTICO
+  ====================================================== */
+
+  const years = [];
+  for (let y = timelineStart.year; y <= timelineEnd.year; y++) {
+    years.push(y);
+  }
+
   return (
     <section id="timeline" className="section-timeline py-5">
       <div className="container-lg">
-
         <div className="timeline-header text-center mb-4">
           <h2 className="h3 mb-1">Timeline</h2>
           <p className="text-secondary mb-2">
@@ -30,73 +124,97 @@ export default function Timeline() {
           <div className="tl-scroll">
             <div className="tl-area">
 
-              {/* Companies top lane */}
+              {/* ===================== COMPANIES ===================== */}
+
               <div className="tl-lane tl-lane--top tl-lane--clickable">
-                <a href="#experience" className="tl-lane-cta" aria-label="Go to Experience section"></a>
+                <a href="#experience" className="tl-lane-cta" />
+
                 <div className="tl-lane-label tl-lane-label--cta">
                   Companies <span className="tl-lane-arrow">→</span>
                 </div>
 
-                <a className="tl-item tl-item--job" href="https://www.wine.com.br" target="_blank" rel="noopener noreferrer" style={{left: "44.7%", width: "27.27%"}}>
-                  <div className="tl-card tl-card--job">
-                    <img className="tl-logo" src={wineLogo} alt="Wine" />
-                    <div>
-                      <div className="tl-title">Wine</div>
-                      <div className="tl-subtitle">Analytics / DS</div>
-                    </div>
-                  </div>
-                </a>
+                {jobs.map((job, index) => {
+                  const position = getPosition(job.start, job.end);
 
-                <a className="tl-item tl-item--job is-current" href="https://www.thoughtworks.com/" target="_blank" rel="noopener noreferrer" style={{left: "71.21%", width: "19.70%"}}>
-                  <div className="tl-card tl-card--job">
-                    <img className="tl-logo" src={thoughtworksLogo} alt="Thoughtworks" />
-                    <div>
-                      <div className="tl-title">Thoughtworks</div>
-                      <div className="tl-subtitle">Analytics / DS</div>
-                    </div>
-                  </div>
-                </a>
+                  return (
+                    <a
+                      key={index}
+                      href={job.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`tl-item tl-item--job ${
+                        job.current ? "is-current" : ""
+                      }`}
+                      style={position}
+                    >
+                      <div className="tl-card tl-card--job">
+                        <img
+                          className="tl-logo"
+                          src={job.logo}
+                          alt={job.title}
+                        />
+                        <div>
+                          <div className="tl-title">{job.title}</div>
+                          <div className="tl-subtitle">
+                            {job.subtitle}
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  );
+                })}
               </div>
 
-              {/* Axis */}
+              {/* ===================== AXIS ===================== */}
+
               <div className="tl-axis" aria-hidden="true">
-                {Array.from({length: 12}, (_, i) => (
-                  <div className="tl-tick" style={{left: `${i*9.09}%`}} key={i}>
-                    <span>{2016+i}</span>
-                  </div>
-                ))}
+                {years.map((year) => {
+                  const left =
+                    ((year - timelineStart.year) /
+                      (timelineEnd.year - timelineStart.year)) *
+                    100;
+
+                  return (
+                    <div
+                      key={year}
+                      className="tl-tick"
+                      style={{ left: `${left}%` }}
+                    >
+                      <span>{year}</span>
+                    </div>
+                  );
+                })}
               </div>
 
-              {/* Education bottom lane */}
+              {/* ===================== EDUCATION ===================== */}
+
               <div className="tl-lane tl-lane--bottom tl-lane--clickable">
-                <a href="#education" className="tl-lane-cta" aria-label="Go to Education section"></a>
+                <a href="#education" className="tl-lane-cta" />
 
-                <div className="tl-item tl-item--edu" style={{left: "5.3%", width: "47.73%"}}>
-                  <div className="tl-card tl-card--edu tl-card--edu-row">
-                    <img className="tl-logo" src={ufesLogo} alt="UFES" />
-                    <div>
-                      <div className="tl-title">BSc in Electrical Engineering</div>
-                    </div>
-                  </div>
-                </div>
+                {education.map((edu, index) => {
+                  const position = getPosition(edu.start, edu.end);
 
-                <div className="tl-item tl-item--edu" style={{left: "77%", width: "14%"}}>
-                  <div className="tl-card tl-card--edu tl-card--edu-row">
-                    <img className="tl-logo" src={ufesLogo} alt="UFES" />
-                    <div>
-                      <div className="tl-title">PG in AI</div>
+                  return (
+                    <div
+                      key={index}
+                      className={`tl-item tl-item--edu ${
+                        edu.offset ? "tl-item--offset" : ""
+                      } ${edu.current ? "is-current" : ""}`}
+                      style={position}
+                    >
+                      <div className="tl-card tl-card--edu tl-card--edu-row">
+                        <img
+                          className="tl-logo"
+                          src={edu.logo}
+                          alt={edu.title}
+                        />
+                        <div>
+                          <div className="tl-title">{edu.title}</div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-
-                <div className="tl-item tl-item--edu tl-item--offset is-current" style={{left: "82.58%", width: "22.73%"}}>
-                  <div className="tl-card tl-card--edu tl-card--edu-row">
-                    <img className="tl-logo" src={ifesLogo} alt="IFES" />
-                    <div>
-                      <div className="tl-title">MSc in AI</div>
-                    </div>
-                  </div>
-                </div>
+                  );
+                })}
 
                 <div className="tl-lane-label tl-lane-label--bottom tl-lane-label--cta">
                   Education <span className="tl-lane-arrow">→</span>
@@ -106,7 +224,6 @@ export default function Timeline() {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

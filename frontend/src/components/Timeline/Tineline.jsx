@@ -75,18 +75,21 @@ export default function Timeline() {
     {
       title: "BSc in Electrical Engineering",
       logo: ufesLogo,
+      link: "https://www.ufes.br/",
       start: { year: 2016, month: 2 },
       end: { year: 2021, month: 12 },
     },
     {
       title: "PG in AI",
       logo: ufesLogo,
+      link: "https://www.ufes.br/",
       start: { year: 2024, month: 1 },
       end: { year: 2024, month: 12 },
     },
     {
       title: "MSc in AI",
       logo: ifesLogo,
+      link: "https://www.ifes.edu.br/",
       start: { year: 2024, month: 6 },
       end: null,
       current: true,
@@ -193,10 +196,15 @@ export default function Timeline() {
 
                 {education.map((edu, index) => {
                   const position = getPosition(edu.start, edu.end);
+                  
+                  const Wrapper = edu.link ? "a" : "div";
 
                   return (
-                    <div
+                    <Wrapper
                       key={index}
+                      href={edu.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`tl-item tl-item--edu ${
                         edu.offset ? "tl-item--offset" : ""
                       } ${edu.current ? "is-current" : ""}`}
@@ -212,7 +220,7 @@ export default function Timeline() {
                           <div className="tl-title">{edu.title}</div>
                         </div>
                       </div>
-                    </div>
+                    </Wrapper>
                   );
                 })}
 

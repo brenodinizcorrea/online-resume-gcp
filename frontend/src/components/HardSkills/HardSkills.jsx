@@ -2,32 +2,29 @@ import React from "react";
 import "./HardSkills.css";
 
 const skillsData = [
+
   {
-    sector: "Languages & Libs & Frameworks",
+    sector: "Programming",
     skills: [
-      { name: "SQL", type: "exp" },
       { name: "Python", type: "exp" },
-      { name: "JavaScript", type: "study" },
-      { name: "HTML", type: "study" }
+      { name: "SQL", type: "exp" },
+      { name: "JavaScript (ES6+)", type: "study" },
+      { name: "React", type: "study" },
+      { name: "HTML5", type: "study" },
+      { name: "CSS3", type: "study" }
     ]
   },
   {
-    sector: "Tools & Platforms",
+    sector: "Data Engineering & Platforms",
     skills: [
       { name: "BigQuery", type: "exp" },
-      { name: "GitHub", type: "exp" },
-      { name: "GitLab", type: "exp" },
+      { name: "DataForm", type: "exp" },
       { name: "Airflow", type: "exp" },
-      { name: "Terraform", type: "exp" },
-      { name: "Power BI", type: "exp" },
-      { name: "Looker Studio", type: "exp" },
-      { name: "Apache Superset", type: "exp" },
-      { name: "Cloud Storage", type: "exp" },
-      { name: "DataForm", type: "exp" }
+      { name: "Cloud Storage", type: "exp" }
     ]
   },
   {
-    sector: "Methods & Theory",
+    sector: "Statistics & Experimentation",
     skills: [
       { name: "A/B Testing", type: "exp" },
       { name: "Statistical Inference", type: "exp" },
@@ -35,14 +32,30 @@ const skillsData = [
     ]
   },
   {
-    sector: "ML & AI",
+    sector: "Machine Learning & AI",
     skills: [
       { name: "Classification", type: "exp" },
-      { name: "Time Series", type: "exp" },
       { name: "Clustering", type: "exp" },
+      { name: "Time Series", type: "exp" },
       { name: "NLP", type: "learn" }
     ]
+  },
+
+
+  {
+    sector: "Cloud & DevOps",
+    skills: [
+      { name: "Terraform", type: "exp" },
+      { name: "GitHub", type: "exp" },
+      { name: "GitLab", type: "exp" },
+      { name: "Docker", type: "study" },
+      { name: "Cloud Run", type: "study" },
+      { name: "Artifact Registry", type: "study" },
+      { name: "CI/CD (GitHub Actions)", type: "study" },
+      { name: "DNS & Domain Configuration", type: "study" }
+    ]
   }
+
 ];
 
 export default function HardSkills() {

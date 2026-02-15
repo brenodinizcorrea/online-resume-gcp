@@ -4,7 +4,7 @@
 :root {
   --hero-bg: var(--bg-tertiary);            /* Fundo padrão da seção */
   --hero-text-primary: var(--text-primary);
-  --hero-text-secondary: var(--text-secondary);
+  --hero-text-secondary: var(--text-primary);
 }
 
 /* =========================
